@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: alistore
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alistore
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    doc-expansion: none
+  show-actuator: false
+  packages-to-scan: com.alistore.controller
+
+server:
+  port: 8080
+
+jwt:
+  secret: your-secret-key-here-make-it-very-long-and-secure-in-production
+  expiration: 86400000 # 24 hours in milliseconds
